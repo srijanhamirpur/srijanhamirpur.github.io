@@ -231,3 +231,7 @@ pluralizelisttitles = false
   category = "categories"
   tag = "tags"
   author = "authors"
+
+[outputs]
+  home     = ["HTML"]
+  section  = ["HTML"]
