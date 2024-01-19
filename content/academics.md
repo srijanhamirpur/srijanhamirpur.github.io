@@ -32,6 +32,6 @@ title = "Academics"
 
 - A.I.S.S.E.E. / N.V.S.
 
-- H.P. C.A.T.
+- H.P. Govt Competitive Examinations
 
 - Academy of Commerce
