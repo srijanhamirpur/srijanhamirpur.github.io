@@ -126,3 +126,6 @@
 
 - id: admissionSubmit
   translation: Submit Application
+
+- id: admissionPhone
+  translation: Phone Number
