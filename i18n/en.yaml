@@ -129,3 +129,9 @@
 
 - id: admissionPhone
   translation: Phone Number
+
+- id: admissionAddress
+  translation: Address
+
+- id: admissionClass
+  translation: Class

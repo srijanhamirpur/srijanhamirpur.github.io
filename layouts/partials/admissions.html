@@ -7,7 +7,7 @@
 
         {{ .Content }}
 
-        {{ if isset .Site.Params "formspree_action" }}
+        {{ if isset .Site.Params "formspree_action_admission" }}
 
         <div class="heading">
           <h3>{{ i18n "admissionForm" }}</h3>
@@ -24,69 +24,80 @@
                 <input type="text" class="form-control" name="name" id="name" required>
               </div>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="phone">{{ i18n "admissionPhone" }}</label>
+              <input type="number" autocomplete="phone" class="form-control" name="phone" id="phone" required>
+              <label for="mail">{{ i18n "admissionMail" }}</label>
+              <input type="mail" autocomplete="mail" class="form-control" name="mail" id="mail" required>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="phone">{{ i18n "admissionPhone" }}</label>
-                <input type="number" autocomplete="phone" class="form-control" name="phone" id="phone" required>
+                <label for="address">{{ i18n "admissionAddress" }}</label>
+                <textarea autocomplete="address" class="form-control" name="address" id="address" required>
+                </textarea>
               </div>
             </div>
-            <div class="col-sm-12">
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
               <div class="form-group">
-                <fieldset style="display: grid; grid-template-columns: auto auto;">
-                  <legend>Courses:</legend>
-                  <label for="jee">J.E.E.</label><input type="checkbox" name="courses" value="jee" id="jee">
-                  <label for="neet">N.E.E.T.</label><input type="checkbox" name="courses" value="neet" id="neet">
-                  <label for="hpgov">H.P. Govt. Competitive Examination</label><input type="checkbox" name="courses"
-                    value="hpgov" id="hpgov">
-                  <label for="foundational">Foundational Courses</label><input type="checkbox" name="courses"
-                    value="foundational" id="foundational">
-                  <label for="commerce">Commerce</label><input type="checkbox" name="courses" value="commerce"
-                    id="commerce">
-                  <label for="commerce">N.V.S. / A.I.S.E.E. </label><input type="checkbox" name="courses"
-                    value="commerce" id="commerce">
-
-                </fieldset>
-              </div>
-              {{ if and .Site.Params.enableRecaptchaInContactForm .Site.Params.googleRecaptchaKey }}
-              <div class="col-sm-12">
-                <div class="g-recaptcha" data-sitekey="{{ .Site.Params.googleRecaptchaKey }}"></div>
-                <br />
-              </div>
-              {{ end }}
-
-              <div class="col-sm-12 text-center">
-                <button type="submit" class="btn btn-template-main"><i class="far fa-envelope"></i>{{ i18n
-                  "admissionSubmit"
-                  }}</button>
-
+                <label for="class">{{ i18n "admissionClass" }}</label>
+                <select name="class" id="class" required>
+                  <option value="8th" label="8th">
+                  <option value="9th" label="9th">
+                  <option value="10th" label="10th">
+                  <option value="11th" label="11th">
+                  <option value="12th" label="12th">
+                </select>
               </div>
             </div>
-            <!-- /.row -->
-        </form>
-
-        {{ end }}
-
-      </section>
-
+          </div>
     </div>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <fieldset style="display: grid; grid-template-columns: auto auto;">
+          <legend>Courses:</legend>
+          <label for="jee">J.E.E.</label><input type="checkbox" name="courses" value="jee" id="jee">
+          <label for="neet">N.E.E.T.</label><input type="checkbox" name="courses" value="neet" id="neet">
+          <label for="hpgov">H.P. Govt. Competitive Examination</label><input type="checkbox" name="courses"
+            value="hpgov" id="hpgov">
+          <label for="foundational">Foundation Courses</label><input type="checkbox" name="courses" value="foundational"
+            id="foundational">
+          <label for="commerce">Commerce</label><input type="checkbox" name="courses" value="commerce" id="commerce">
+          <label for="commerce">N.V.S. / A.I.S.E.E. </label><input type="checkbox" name="courses" value="commerce"
+            id="commerce">
 
-    <div class="col-md-4">
-
-      {{ if isset .Site.Params "address" }}
-      <section>
-
-        <h3 class="text-uppercase"> {{ i18n "contactAddrTitle" }}</h3>
-
-        {{ .Site.Params.address | safeHTML }}
-
-      </section>
-
+        </fieldset>
+      </div>
+      {{ if and .Site.Params.enableRecaptchaInContactForm .Site.Params.googleRecaptchaKey }}
+      <div class="col-sm-12">
+        <div class="g-recaptcha" data-sitekey="{{ .Site.Params.googleRecaptchaKey }}"></div>
+        <br />
+      </div>
       {{ end }}
 
+      <div class="col-sm-12 text-center">
+        <button type="submit" class="btn btn-template-main"><i class="far fa-envelope"></i>
+          {{ i18n "admissionSubmit" }}
+        </button>
+
+      </div>
     </div>
+    <!-- /.row -->
+    </form>
+
+    {{ end }}
+
+    </section>
 
   </div>
-  <!-- /.row -->
+
+</div>
+<!-- /.row -->
 </div>
 
 {{ partial "map.html" . }}
